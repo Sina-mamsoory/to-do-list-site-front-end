@@ -12,17 +12,20 @@
 <body>
     <div class="all_container">
         <div class="game_name"><h1>todo list</h1></div>
-        <form id="todo-form">
+        <form  id="todo-form">
             <input type="text" class="todo_input">
-            <button type="submit" class="button-todo"><i class="fa-solid fa-plus"></i></button>
+            <button type="submit" class="button-todo"><i class="fa-solid fa-square-plus"></i></button>
             <div class="select">
                 <select name="todos" id="filter-todo">
-                    <option value="all">All</option>
-                    <option value="completedall">Completed</option>
-                    <option value="uncompleted">Uncompleted</option>
+                    <option value="all" class="options option1">All</option>
+                    <option value="completedall" class="options option2">Completed</option>
+                    <option value="uncompleted" class="options option3">Uncompleted</option>
                 </select>
             </div>
         </form>
+        <div class="Tasks">
+            <ul class="tasks-list"></ul>
+        </div>
     </div>
     <script src="./js/main.js"></script>
 </body>

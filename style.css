@@ -54,16 +54,16 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
+ 
 #todo-form #filter-todo {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
+  padding: 1rem;
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background-image: none;
   border-radius: 10px;
   color: #c4447a;
   font-family: "Poppins", sans-serif;
@@ -71,15 +71,80 @@ body {
   width: 12rem;
 }
 
-#todo-form #filter-todo {
-  padding: 1rem;
-}
 .select {
   margin: 1rem;
   position: relative;
   overflow: hidden;
 }
 
-#filter-todo {
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
   padding: 1rem;
+  background: #c4447a;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+
+.Tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks-container{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.tasks { 
+  margin: 0.5rem 0  0.5rem  0.5rem ;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.73rem 1.5rem;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  width: 8rem;
+}
+
+.tasks-list {
+  min-width: 30%;
+  list-style: none;
+  border-radius: 10px;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.trash-btn {
+  color: #ffffff;
+  background-color: red;
+  padding: 1rem;
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+.check-btn {
+  color: #ffffff;
+  background: rgb(11, 212, 162);
+  padding: 1rem;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
 }
