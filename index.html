@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <script src="https://kit.fontawesome.com/284ab46b50.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="all_container">
+        <div class="game_name"><h1>todo list</h1></div>
+        <form id="todo-form">
+            <input type="text" class="todo_input">
+            <button type="submit" class="button-todo"><i class="fa-solid fa-plus"></i></button>
+            <div class="select">
+                <select name="todos" id="filter-todo">
+                    <option value="all">All</option>
+                    <option value="completedall">Completed</option>
+                    <option value="uncompleted">Uncompleted</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
