@@ -4,7 +4,8 @@ const tasksUl = document.getElementsByClassName("tasks-list")[0];
 
 button.addEventListener("click", addTask);
 let indexLi = 0
-let indexButton = 0;
+let indexCheckButton = 0;
+let indexTrashButton = 0;
 
 function addTask(event) {
     event.preventDefault()
@@ -20,17 +21,19 @@ function addTask(event) {
 
     //check button 
     const checkButton = document.createElement("button");
-    checkButton.innerHTML = `<i class="fa-solid fa-check"></i>`
-    checkButton.classList = "check-btn "
-    checkButton.id = indexButton++;
-    tasksDiv.appendChild(checkButton)
-    checkButton.addEventListener("click", completedTask)
+    checkButton.innerHTML = `<i class="fa-solid fa-check"></i>`;
+    checkButton.classList = "check-btn ";
+    checkButton.id = indexCheckButton++;
+    tasksDiv.appendChild(checkButton);
+    checkButton.addEventListener("click", completedTask);
 
     //trash button     
     const trashButton = document.createElement("button");
-    trashButton.innerHTML = `<i class="fa-solid fa-trash"></i>`
-    trashButton.classList = "trash-btn"
-    tasksDiv.appendChild(trashButton)
+    trashButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    trashButton.classList = "trash-btn";
+    trashButton.id = indexTrashButton++
+    tasksDiv.appendChild(trashButton);
+    trashButton.addEventListener("click", deleteTask);
 
          tasksLi.innerText = inputForm.value;
     if(tasksLi.innerText !== ""){
@@ -62,4 +65,9 @@ function completedTask(event) {
      let selectedTask = document.getElementsByClassName("tasks-list")[0].getElementsByClassName("tasks-container")[event.target.id].childNodes[0];
 
      selectedTask.classList = "completed";
+}
+
+function deleteTask(event) {
+     let selectedDiv = document.getElementsByClassName("tasks-list")[0].getElementsByClassName("tasks-container")[event.target.id];
+     selectedDiv.remove()
 }
