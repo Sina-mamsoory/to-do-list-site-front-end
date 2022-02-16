@@ -26,6 +26,26 @@ function addTask(event) {
          tasksLi.innerText = inputForm.value;
     if(tasksLi.innerText !== ""){
          tasksUl.appendChild(tasksDiv);
+    } else {
+          // if user dosn't write any task this prt will show an error
+
+         const errorPTag = document.createElement("p");
+         const errorUl = document.querySelector("#error").querySelector("ul");
+         const errorLi = document.createElement("li");
+
+         errorPTag.innerText = "please write a task.";
+
+         
+         errorLi.appendChild(errorPTag) 
+         errorLi.classList = "errorClass";
+         
+         errorUl.appendChild(errorLi);
+         errorUl.classList = "ul-error";
+
+         setTimeout( () => {
+            document.querySelector("#error").removeAttribute("class");
+            errorUl.removeChild(errorLi)
+         },3000)
     }
 }
 

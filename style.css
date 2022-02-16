@@ -14,6 +14,8 @@ body {
   align-items: flex-start;
 }
 
+
+/* part of filter , input */
 .game_name {
     margin: 40px ;
     width: 300px; height:100px;
@@ -26,6 +28,8 @@ body {
 .button-todo {
   color: #c4447a;
   background: #f7fffe;
+  padding: 0.5rem;
+  font-size: 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   border-top-right-radius: 10px;
@@ -38,15 +42,15 @@ body {
 }
 
 .todo_input , .button-todo { 
-  padding: 0.5rem;
-  font-size: 2rem;
   border: none;
   background: white;
 }
 
 .todo_input {
-    border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
+  padding: 0.6rem 1.8rem;
+  font-size: 1.7rem;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #todo-form {
@@ -89,39 +93,36 @@ body {
 }
 
 
-.Tasks {
+
+/* part of tasks */
+
+
+.Tasks, .tasks-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.tasks-container{
-  display: flex;
-  justify-content:center;
   align-items: center;
 }
 
 .tasks { 
   margin: 0.5rem 0  0.5rem  0.5rem ;
   background: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.73rem 1.5rem;
   border: 0;
   border-radius: 10px 0 0 10px;
-  width: 8rem;
+  width: 12rem;
+  overflow: hidden;
 }
 
 .tasks-list {
   min-width: 30%;
   list-style: none;
   border-radius: 10px;
+  /* background-color: #130436; */
 }
 
 .fa-trash,
@@ -129,7 +130,7 @@ body {
   pointer-events: none;
 }
 
-.trash-btn {
+.trash-btn ,.check-btn {
   color: #ffffff;
   background-color: red;
   padding: 1rem;
@@ -141,10 +142,40 @@ body {
 
 
 .check-btn {
-  color: #ffffff;
   background: rgb(11, 212, 162);
-  padding: 1rem;
-  border: 0;
-  cursor: pointer;
-  font-size: 1rem;
+  border-radius: 0;
+}
+
+
+
+/* part of error */
+
+
+.errorClass {
+  padding: 10px;
+  width: 10rem;
+  background-color: #fa3b3bc1;
+  border-radius: 14px;
+  color: #ffffff;
+  margin: 10px;
+  animation: disappearing 6s ease ;
+}
+
+.ul-error {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+}
+
+#error{
+  display: flex;
+  justify-content: flex-start;
+}
+
+@-webkit-keyframes disappearing {
+
+  0% { background-color: #fa3b3bc1;}
+  
+  100% { background-color: #fa3b3b00; display: none; color: #ffffff00;}
 }
