@@ -6,7 +6,7 @@ const selectElement = document.getElementById("filter-todo");
 
 
 button.addEventListener("click", addTask);
-tasksUl.addEventListener("click", deleteCheckTask);
+tasksUl.addEventListener("click", deleteOrCheckTask);
 
 let indexLi = 0
 let indexCheckButton = 0;
@@ -86,7 +86,7 @@ function saveLocalStorage(task) {
      localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function deleteCheckTask(event) {
+function deleteOrCheckTask(event) {
      let item = event.target;
      if(item.classList[0] === "check-btn")
      {
