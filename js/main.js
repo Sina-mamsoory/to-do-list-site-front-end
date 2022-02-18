@@ -1,8 +1,13 @@
 const button = document.querySelector(".button-todo");
 const inputForm = document.querySelector(".todo_input");
 const tasksUl = document.getElementsByClassName("tasks-list")[0];
+const selectElement = document.getElementById("filter-todo");
+
+
 
 button.addEventListener("click", addTask);
+tasksUl.addEventListener("click", deleteCheckTask);
+
 let indexLi = 0
 let indexCheckButton = 0;
 let indexTrashButton = 0;
@@ -18,14 +23,15 @@ function addTask(event) {
     tasksLi.classList = "tasks";
     tasksLi.id = indexLi++
     
+     
 
     //check button 
     const checkButton = document.createElement("button");
     checkButton.innerHTML = `<i class="fa-solid fa-check"></i>`;
-    checkButton.classList = "check-btn ";
+    checkButton.classList = "check-btn";
     checkButton.id = indexCheckButton++;
     tasksDiv.appendChild(checkButton);
-    checkButton.addEventListener("click", completedTask);
+//     checkButton.addEventListener("click", completedTask);
 
     //trash button     
     const trashButton = document.createElement("button");
@@ -33,11 +39,14 @@ function addTask(event) {
     trashButton.classList = "trash-btn";
     trashButton.id = indexTrashButton++
     tasksDiv.appendChild(trashButton);
-    trashButton.addEventListener("click", deleteTask);
+//     trashButton.addEventListener("click", deleteTask);
 
          tasksLi.innerText = inputForm.value;
+         saveLocalStorage(inputForm.value);
+
     if(tasksLi.innerText !== ""){
          tasksUl.appendChild(tasksDiv);
+         inputForm.value = "";
     } else {
           // if user dosn't write any task this prt will show an error
 
@@ -61,13 +70,47 @@ function addTask(event) {
     }
 }
 
-function completedTask(event) {
-     let selectedTask = document.getElementsByClassName("tasks-list")[0].getElementsByClassName("tasks-container")[event.target.id].childNodes[0];
+// localStorage.clear();
+function saveLocalStorage(task) {
+     let tasks;
+     if(localStorage.getItem("tasks") === null)
+     {
+          tasks = [];
+     } else {
+          tasks = JSON.parse(localStorage.getItem("tasks"));
+     }
 
-     selectedTask.classList = "completed";
+     if(tasks.indexOf(task) === -1){
+          tasks.push(task);
+     }
+     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function deleteTask(event) {
-     let selectedDiv = document.getElementsByClassName("tasks-list")[0].getElementsByClassName("tasks-container")[event.target.id];
-     selectedDiv.remove()
+function deleteCheckTask(event) {
+     let item = event.target;
+     if(item.classList[0] === "check-btn")
+     {
+          let todo = item.parentElement;
+          todo.childNodes[0].classList.toggle("completed");
+     } else if(item.classList[0] === "trash-btn") {
+          let todo = item.parentElement;
+          todo.remove();
+          let add =item.parentElement.getElementsByClassName("tasks")[0].innerText;
+          removeLocalstorage(add);
+     }
+}
+
+function removeLocalstorage(task) {
+     let tasks;
+     if(localStorage.getItem("tasks") === null)
+     {
+          tasks = [];
+     } else {
+          tasks = JSON.parse(localStorage.getItem("tasks"));
+          let index = tasks.indexOf(task);
+          tasks.splice(index,1);
+     }
+
+     
+     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
