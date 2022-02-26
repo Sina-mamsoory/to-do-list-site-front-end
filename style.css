@@ -114,7 +114,7 @@ body {
   padding: 0.73rem 1.5rem;
   border: 0;
   border-radius: 10px 0 0 10px;
-  width: 12rem;
+  width: 22rem;
   overflow: hidden;
   transition: all 1s ease;
 }
@@ -184,4 +184,30 @@ body {
   0% { background-color: #fa3b3bc1;}
   
   100% { background-color: #fa3b3b00; display: none; color: #ffffff00;}
+}
+
+
+.fab, .fa-brands {
+  position: absolute;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.fa-github {
+   bottom: 105px; left: 40px;
+   color: rgb(39, 39, 39);
+}
+
+.fa-github:hover {
+  color: rgb(9, 9, 9);
+}
+
+
+.fa-gitlab{
+  bottom: 50px; left: 40px;
+  color: rgb(255, 149, 36);
+}
+
+.fa-gitlab:hover {
+  color: rgb(250, 130, 3);
 }
